@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#f4efe6" />
+<meta name="description" content="Case study: designing Surfaces Atelier, a mobile material library for architects and private clients. Research, user flows, high-fidelity screens, interactive prototype and testing." />
+<meta property="og:title" content="Surfaces Atelier — Mobile App Case Study" />
+<meta property="og:description" content="An internship-ready product design case study: 11 high-fidelity screens, three journeys, and a tested interactive prototype." />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="assets/screens/01-home.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<title>Case study — Surfaces Atelier Mobile App</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%231a1713'/%3E%3Cpath d='M32 12 52 32 32 52 12 32z' fill='none' stroke='%23f4efe6' stroke-width='2'/%3E%3Cpath d='M32 24 40 32 32 40 24 32z' fill='%23c49a6c'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Manrope:wght@300..800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="case-study.css" />
+</head>
+<body>
+<svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="m21 8-9-5-9 5v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></symbol>
+  <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5M11 19l-7-7 7-7"/></symbol>
+  <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+</svg>
+
+<div class="page">
+  <div class="cs-page">
+    <header class="cs-head">
+      <a class="brand" href="index.html" aria-label="Surfaces Atelier prototype home">
+        <span class="brand-mark" aria-hidden="true"><span></span></span>
+        <span class="brand-text"><b>SURFACES</b><span>Atelier · Mobile</span></span>
+      </a>
+      <nav class="cs-nav" aria-label="Case study links">
+        <a class="back" href="index.html"><svg aria-hidden="true"><use href="#i-arrow-left" /></svg>Live prototype</a>
+        <a href="user-flows.html">User flows</a>
+        <a class="is-current" href="case-study.html" aria-current="page">Case study</a>
+      </nav>
+    </header>
+
+    <!-- ================= HERO ================= -->
+    <section class="cs-hero" aria-labelledby="cs-title">
+      <div class="cs-hero-grid">
+        <div class="cs-hero-copy">
+          <p class="eyebrow"><span></span>Task 03 — Mobile app prototype · Case study</p>
+          <h1 id="cs-title">A material library<br /><em>in your pocket.</em></h1>
+          <p class="lede">How I designed an end-to-end mobile experience for architects and private clients to discover natural stone, specify a finish, order a sample box and book time with a material advisor — then tested it until every path held together.</p>
+        </div>
+        <div class="cs-hero-visual" aria-hidden="true">
+          <figure class="cs-hero-phone cs-hero-phone--left"><img src="assets/screens/hero-detail.png" alt="" width="390" height="844" /></figure>
+          <figure class="cs-hero-phone cs-hero-phone--center"><img src="assets/screens/hero-home.png" alt="" width="390" height="844" /></figure>
+          <figure class="cs-hero-phone cs-hero-phone--right"><img src="assets/screens/hero-moodboard.png" alt="" width="390" height="844" /></figure>
+        </div>
+      </div>
+      <dl class="cs-hero-meta" aria-label="Project summary">
+        <div><dt>Role</dt><dd>Product design, UX research, UI, front-end prototype</dd></div>
+        <div><dt>Scope</dt><dd>Task 03 · User flows → high-fidelity screens → interactive prototype → testing → refinement</dd></div>
+        <div><dt>Tools</dt><dd>Figma, HTML · CSS · JavaScript, Playwright, Chrome DevTools</dd></div>
+        <div><dt>Deliverables</dt><dd>11 screens, 3 journeys, 25 designed states, live prototype</dd></div>
+      </dl>
+    </section>
+
+    <!-- ================= 01 BRIEF ================= -->
+    <section class="cs-section" id="brief" aria-labelledby="brief-title">
+      <div class="cs-section-head">
+        <span class="cs-section-no">01</span>
+        <h2 id="brief-title">The brief</h2>
+        <p>Why natural stone, and why mobile.</p>
+      </div>
+      <div class="cs-body">
+        <p class="cs-lead">Task 03 asked for user flows, high-fidelity screens, an interactive prototype, testing and refinement. I chose a subject where the decision is <em>tactile, expensive and hard to picture</em>: choosing natural stone.</p>
+        <p>Stone is one of the few interior decisions a client cannot judge from a screen alone. Colour shifts with light, a honed finish reads completely differently to a polished one, and the price is usually quoted per square foot long after the first conversation. Yet the buying journey still runs through showroom visits, PDF catalogues and long WhatsApp threads.</p>
+        <p>I designed <strong>Surfaces Atelier</strong> as a mobile-first material library for a fictional Jaipur stone atelier. It treats the phone as the first showroom: browse the slab, understand the specification, request a physical sample, and only then speak to a person. The product is deliberately calm — the stone supplies the colour, the interface supplies the structure.</p>
+      </div>
+    </section>
+
+    <!-- ================= 02 PROBLEM ================= -->
+    <section class="cs-section" id="problem" aria-labelledby="problem-title">
+      <div class="cs-section-head">
+        <span class="cs-section-no">02</span>
+        <h2 id="problem-title">The problem</h2>
+        <p>Three frictions I kept hearing in the category.</p>
+      </div>
+      <div class="cs-body">
+        <div class="cs-cards">
+          <article class="cs-card">
+            <span class="cs-card-no">01</span>
+            <h3>“I can’t picture it.”</h3>
+            <p>Clients see a square swatch online, then a full slab in the showroom. Scale, veining and finish rarely match the photograph, so confidence only arrives in person.</p>
+          </article>
+          <article class="cs-card">
+            <span class="cs-card-no">02</span>
+            <h3>“Which version did we like?”</h3>
+            <p>Architects shortlist across suppliers using screenshots, notes and memory. There is no shared record of the finish, batch or price attached to a decision.</p>
+          </article>
+          <article class="cs-card">
+            <span class="cs-card-no">03</span>
+            <h3>“Samples take a week.”</h3>
+            <p>Requesting a sample is informal and slow — a message, a callback, an address exchange. The moment of excitement is lost before the box arrives.</p>
+          </article>
+        </div>
+        <div class="cs-callout">
+          <span class="micro">Opportunity</span>
+          <p>Turn browsing into a specification, and a specification into <em>a sample box or a conversation</em> — without leaving the phone.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 03 PEOPLE ================= -->
+    <section class="cs-section" id="people" aria-labelledby="people-title">
+      <div class="cs-section-head">
+        <span class="cs-section-no">03</span>
+        <h2 id="people-title">The people</h2>
+        <p>Two users with the same goal, different pressure.</p>
+      </div>
+      <div class="cs-body">
+        <div class="cs-personas">
+          <article class="cs-persona">
+            <div class="cs-persona-top">
+              <span class="cs-persona-avatar" aria-hidden="true">AK</span>
+              <div><b>Ananya Kapoor, 34</b><span>Principal · Studio Kapoor, Jaipur</span></div>
+            </div>
+            <blockquote>“I need the exact finish, the price and a sample — before my client meeting on Thursday.”</blockquote>
+            <ul>
+              <li>Runs three to five residential projects at once</li>
+              <li>Specifies on site, often on a phone</li>
+              <li>Judged on taste and on how smoothly the build runs</li>
+            </ul>
+            <p class="cs-persona-need">Design need: speed, a project-level record, and sample logistics she can trust.</p>
+          </article>
+          <article class="cs-persona">
+            <div class="cs-persona-top">
+              <span class="cs-persona-avatar" aria-hidden="true">DM</span>
+              <div><b>Dev &amp; Mira Shah, 41</b><span>Private clients · Villa Amara</span></div>
+            </div>
+            <blockquote>“We know the feeling we want. We don’t know what it’s called or what it costs.”</blockquote>
+            <ul>
+              <li>Building their first home, making hundreds of decisions</li>
+              <li>Wants reassurance more than a catalogue</li>
+              <li>Will pay for guidance if it saves a mistake</li>
+            </ul>
+            <p class="cs-persona-need">Design need: plain language, visual confidence, and a human to talk to.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 04 GOALS ================= -->
+    <section class="cs-section" id="goals" aria-labelledby="goals-title">
+      <div class="cs-section-head">
+        <span class="cs-section-no">04</span>
+        <h2 id="goals-title">Goals &amp; measures</h2>
+        <p>What the prototype had to prove.</p>
+      </div>
+      <div class="cs-body">
+        <div class="cs-goals">
+          <article class="cs-goal cs-goal--primary">
+            <span class="micro">Primary goal</span>
+            <ol>
+              <li><b>Request a sample box.</b> A first-time visitor can go from home to a confirmed request without help.</li>
+              <li><b>Understand the surface.</b> Family, origin, finish, format and price are legible in one view.</li>
+              <li><b>Never hit a dead end.</b> Empty, full, invalid and unavailable states all offer a next step.</li>
+            </ol>
+          </article>
+          <article class="cs-goal">
+            <span class="micro">Secondary goals</span>
+            <ol>
+              <li><b>Save and collect.</b> A trade user can keep surfaces and assemble a client moodboard.</li>
+              <li><b>Book a consultation.</b> A guided, gated booking flow that feels private, not bureaucratic.</li>
+              <li><b>Feel like the brand.</b> Warm, editorial and materially honest at every touchpoint.</li>
+            </ol>
+          </article>
+        </div>
+        <div class="cs-metrics" aria-label="Success measures">
+          <div><strong>&lt; 90s</strong><span>Home to first sample</span></div>
+          <div><strong>100%</strong><span>Journeys completable</span></div>
+          <div><strong>0</strong><span>Console errors</span></div>
+          <div><strong>320–1440</strong><span>Widths without overflow</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 05 ASSUMPTIONS ================= -->
+    <section class="cs-section" id="assumptions" aria-labelledby="assumptions-title">
+      <div class="cs-section-head">
+        <span class="cs-section-no">05</span>
+        <h2 id="assumptions-title">Assumptions &amp; constraints</h2>
+        <p>What I fixed so the prototype could be judged on the experience.</p>
+      </div>
+      <div class="cs-body">
+        <div class="cs-assumptions">
+          <div class="cs-assumption"><span class="cs-dot">1</span><div><b>Prototype, not production</b><p>No backend. Catalogue, samples, saved surfaces and bookings persist in local storage.</p></div></div>
+          <div class="cs-assumption"><span class="cs-dot">2</span><div><b>One representative catalogue</b><p>Twelve surfaces across marble, travertine, porcelain, terrazzo and onyx — enough to test search, filters and pairing.</p></div></div>
+          <div class="cs-assumption"><span class="cs-dot">3</span><div><b>Mobile-first canvas</b><p>Designed at 390 × 844 with safe areas, then presented inside a desktop review shell.</p></div></div>
+          <div class="cs-assumption"><span class="cs-dot">4</span><div><b>No build step</b><p>Self-contained HTML, CSS and JavaScript so an interviewer can open it and use it immediately.</p></div></div>
+          <div class="cs-assumption"><span class="cs-dot">5</span><div><b>Real photography</b><p>Pexels stone imagery stands in for studio photography, with graceful fallbacks if a request fails.</p></div></div>
+          <div class="cs-assumption"><span class="cs-dot">6</span><div><b>One trade persona</b><p>The account is pre-filled as Ananya Kapoor so the prototype can show a populated studio without a login flow.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 06 IA ================= -->
+    <section class="cs-section" id="architecture" aria-labelledby="architecture-title">
+      <div class="cs-section-head">
+        <span class="cs-section-no">06</span>
+        <h2 id="architecture-title">Information architecture</h2>
+        <p>Four tabs, six overlays, one continuous story.</p>
+      </div>
+      <div class="cs-body">
+        <p class="cs-lead">The tab bar holds the four places a client returns to. Everything else is a <em>focused overlay</em> with a clear way back.</p>
+        <div class="cs-ia">
+          <div class="cs-ia-tabs">
+            <div class="cs-ia-tab"><b><i>01</i>Home</b><span>Greeting &amp; search</span><span>Stone of the month</span><span>Curated rail</span><span>Consultation card</span></div>
+            <div class="cs-ia-tab"><b><i>02</i>Explore</b><span>Full library</span><span>Family chips</span><span>Sort &amp; filter sheet</span><span>Live results</span></div>
+            <div class="cs-ia-tab"><b><i>03</i>Samples</b><span>Selected surfaces</span><span>Five-sample limit</span><span>Recommendations</span><span>Request CTA</span></div>
+            <div class="cs-ia-tab"><b><i>04</i>Studio</b><span>Trade profile</span><span>Saved surfaces</span><span>Moodboards</span><span>Recent activity</span></div>
+          </div>
+          <div class="cs-ia-overlays">
+            <span class="micro">Pushed screens &amp; overlays</span>
+            <div class="cs-ia-chips">
+              <span>Search</span><span>Material detail</span><span>Request samples</span><span>Request confirmed</span><span>Moodboard</span><span>Book a visit</span><span>Consultation confirmed</span><span>Filter sheet</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 07 JOURNEYS ================= -->
+    <section class="cs-section" id="journeys" aria-labelledby="journeys-title">
+      <div class="cs-section-head">
+        <span class="cs-section-no">07</span>
+        <h2 id="journeys-title">Three journeys</h2>
+        <p>Each one maps to a real intention, with its own edge cases.</p>
+      </div>
+      <div class="cs-body">
+        <div class="cs-journeys">
+          <article class="cs-journey">
+            <div class="cs-journey-top">
+              <span class="cs-journey-no">01</span>
+              <h3>Request a sample box</h3>
+              <span class="cs-journey-tag">7 steps · 5 screens</span>
+            </div>
+            <p>The primary conversion path. A visitor discovers a surface, checks the specification, chooses a finish, builds a box of up to five samples and sends a request.</p>
+            <div class="cs-journey-steps">
+              <span><i>1</i>Browse</span><span><i>2</i>Open</span><span><i>3</i>Choose finish</span><span><i>4</i>Add to box</span><span><i>5</i>Review</span><span><i>6</i>Details</span><span><i>7</i>Confirmed</span>
+            </div>
+            <a class="cs-journey-link" href="user-flows.html#flow-samples">See the flow diagram <svg aria-hidden="true"><use href="#i-arrow-right" /></svg></a>
+          </article>
+          <article class="cs-journey">
+            <div class="cs-journey-top">
+              <span class="cs-journey-no">02</span>
+              <h3>Search &amp; save a surface</h3>
+              <span class="cs-journey-tag">5 steps · 4 screens</span>
+            </div>
+            <p>A returning trade client knows roughly what she wants. The path optimises for speed: search, open, save, then collect the scheme into a project moodboard.</p>
+            <div class="cs-journey-steps">
+              <span><i>1</i>Search</span><span><i>2</i>Scan results</span><span><i>3</i>Verify</span><span><i>4</i>Save</span><span><i>5</i>Moodboard</span>
+            </div>
+            <a class="cs-journey-link" href="user-flows.html#flow-search">See the flow diagram <svg aria-hidden="true"><use href="#i-arrow-right" /></svg></a>
+          </article>
+          <article class="cs-journey">
+            <div class="cs-journey-top">
+              <span class="cs-journey-no">03</span>
+              <h3>Book a consultation</h3>
+              <span class="cs-journey-tag">6 steps · 3 screens</span>
+            </div>
+            <p>For clients who need guidance before specifying. A short, gated booking flow that only enables confirmation once a date and a time are chosen.</p>
+            <div class="cs-journey-steps">
+              <span><i>1</i>Discover advisor</span><span><i>2</i>Open booking</span><span><i>3</i>Date</span><span><i>4</i>Time</span><span><i>5</i>Format</span><span><i>6</i>Confirmed</span>
+            </div>
+            <a class="cs-journey-link" href="user-flows.html#flow-consult">See the flow diagram <svg aria-hidden="true"><use href="#i-arrow-right" /></svg></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 08 DESIGN SYSTEM ================= -->
+    <section class="cs-section" id="design-system" aria-labelledby="system-title">
+      <div class="cs-section-head">
+        <span class="cs-section-no">08</span>
+        <h2 id="system-title">Design system</h2>
+        <p>A restrained kit so the material carries the colour.</p>
+      </div>
+      <div class="cs-body">
+        <div class="cs-swatches" aria-label="Colour palette">
+          <div class="cs-swatch"><i style="--c:#f4efe6"></i><div><b>Ivory</b><span>#F4EFE6 · canvas</span></div></div>
+          <div class="cs-swatch"><i style="--c:#1a1713"></i><div><b>Ink</b><span>#1A1713 · text</span></div></div>
+          <div class="cs-swatch"><i style="--c:#8f6238"></i><div><b>Brass</b><span>#8F6238 · accent</span></div></div>
+          <div class="cs-swatch"><i style="--c:#e5dccd"></i><div><b>Clay</b><span>#E5DCCD · surface</span></div></div>
+          <div class="cs-swatch"><i style="--c:#3b4132"></i><div><b>Olive</b><span>#3B4132 · success</span></div></div>
+        </div>
+
+        <div class="cs-type">
+          <div class="cs-type-card">
+            <span class="micro">Display · Fraunces</span>
+            <b>Aa</b>
+            <span>300–400 weight, tight tracking. Used for headlines, prices and the editorial voice. Italic for warmth.</span>
+          </div>
+          <div class="cs-type-card cs-type-sans">
+            <span class="micro">Interface · Manrope</span>
+            <b>Aa</b>
+            <span>400–800 weight. Labels, body, chips and controls. Uppercase micro-labels at 0.19em tracking.</span>
+          </div>
+        </div>
+
+        <div class="cs-components">
+          <div class="cs-component-row"><span class="demo-label">Buttons</span>
+            <span class="btn btn--solid btn--sm">Primary</span>
+            <span class="btn btn--ghost btn--sm">Secondary</span>
+            <span class="text-link">Text link</span>
+          </div>
+          <div class="cs-component-row"><span class="demo-label">Chips, pills &amp; fields</span>
+            <span class="chip is-active">Selected</span>
+            <span class="chip">Marble</span>
+            <span class="pill pill--glass" style="background:var(--ink);border-color:var(--ink)">Pill</span>
+          </div>
+          <div class="cs-component-row"><span class="demo-label">Feedback</span>
+            <span class="demo-toast">Calacatta Viola added to your box</span>
+          </div>
+        </div>
+
+        <dl class="cs-token-list">
+          <div><dt>Radius</dt><dd>10 / 14 / 22 / 44 px</dd></div>
+          <div><dt>Spacing</dt><dd>4 px base scale</dd></div>
+          <div><dt>Grid</dt><dd>2-column cards · 18 px gutter</dd></div>
+          <div><dt>Motion</dt><dd>220–400 ms · ease-out</dd></div>
+          <div><dt>Touch targets</dt><dd>44 × 44 px minimum</dd></div>
+          <div><dt>Contrast</dt><dd>AA for body and controls</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ================= 09 SCREENS ================= -->
+    <section class="cs-section" id="screens" aria-labelledby="screens-title">
+      <div class="cs-section-head">
+        <span class="cs-section-no">09</span>
+        <h2 id="screens-title">The screens</h2>
+        <p>Eleven high-fidelity screens, captured from the live prototype.</p>
+      </div>
+      <div class="cs-body">
+        <p class="cs-lead">Every screen below is a real capture at 390 × 844 — not a static mockup. <em>Open the prototype</em> to use the same states.</p>
+        <div class="cs-gallery">
+          <figure class="cs-shot">
+            <div class="cs-shot-frame"><img src="assets/screens/01-home.png" alt="Home screen with greeting, search, stone of the month and curated surfaces" width="780" height="1688" loading="lazy" /></div>
+            <figcaption><i>01</i><span class="cs-shot-text"><b>Home</b><span>Greeting, search entry, hero surface, curated rail and consultation card.</span></span></figcaption>
+          </figure>
+          <figure class="cs-shot">
+            <div class="cs-shot-frame"><img src="assets/screens/02-explore.png" alt="Explore screen with search, family chips and a grid of stone surfaces" width="780" height="1688" loading="lazy" /></div>
+            <figcaption><i>02</i><span class="cs-shot-text"><b>Explore</b><span>Full library, family chips, sorting and the filter sheet entry.</span></span></figcaption>
+          </figure>
+          <figure class="cs-shot">
+            <div class="cs-shot-frame"><img src="assets/screens/03-material-detail.png" alt="Material detail screen for Calacatta Viola with specification and finish chips" width="780" height="1688" loading="lazy" /></div>
+            <figcaption><i>03</i><span class="cs-shot-text"><b>Material detail</b><span>Imagery, price, finish selection, specification and pairing.</span></span></figcaption>
+          </figure>
+          <figure class="cs-shot">
+            <div class="cs-shot-frame"><img src="assets/screens/04-search.png" alt="Search screen showing marble results with family and origin" width="780" height="1688" loading="lazy" /></div>
+            <figcaption><i>04</i><span class="cs-shot-text"><b>Search</b><span>Recents, family shortcuts, trending surfaces and live results.</span></span></figcaption>
+          </figure>
+          <figure class="cs-shot">
+            <div class="cs-shot-frame"><img src="assets/screens/05-sample-box.png" alt="Sample box screen with three selected surfaces and progress" width="780" height="1688" loading="lazy" /></div>
+            <figcaption><i>05</i><span class="cs-shot-text"><b>Sample box</b><span>Up to five surfaces, progress, removal and recommendations.</span></span></figcaption>
+          </figure>
+          <figure class="cs-shot">
+            <div class="cs-shot-frame"><img src="assets/screens/06-request-samples.png" alt="Request samples form with stepper and delivery details" width="780" height="1688" loading="lazy" /></div>
+            <figcaption><i>06</i><span class="cs-shot-text"><b>Request samples</b><span>Three-step stepper, selected surfaces and a validated form.</span></span></figcaption>
+          </figure>
+          <figure class="cs-shot">
+            <div class="cs-shot-frame"><img src="assets/screens/07-request-confirmed.png" alt="Request confirmed screen with reference and delivery details" width="780" height="1688" loading="lazy" /></div>
+            <figcaption><i>07</i><span class="cs-shot-text"><b>Request confirmed</b><span>Reference, surface count, delivery window and destination email.</span></span></figcaption>
+          </figure>
+          <figure class="cs-shot">
+            <div class="cs-shot-frame"><img src="assets/screens/08-studio.png" alt="Studio screen with trade profile, saved surfaces and activity" width="780" height="1688" loading="lazy" /></div>
+            <figcaption><i>08</i><span class="cs-shot-text"><b>Studio</b><span>Trade profile, live counts, saved surfaces and activity.</span></span></figcaption>
+          </figure>
+          <figure class="cs-shot">
+            <div class="cs-shot-frame"><img src="assets/screens/09-moodboard.png" alt="Moodboard for Villa Amara with three stone surfaces" width="780" height="1688" loading="lazy" /></div>
+            <figcaption><i>09</i><span class="cs-shot-text"><b>Moodboard</b><span>Villa Amara scheme with removal, surface links and export.</span></span></figcaption>
+          </figure>
+          <figure class="cs-shot">
+            <div class="cs-shot-frame"><img src="assets/screens/10-book-consultation.png" alt="Book a visit screen with advisor, date strip, times and format" width="780" height="1688" loading="lazy" /></div>
+            <figcaption><i>10</i><span class="cs-shot-text"><b>Book a visit</b><span>Advisor, seven-day strip, times, format and notes.</span></span></figcaption>
+          </figure>
+          <figure class="cs-shot">
+            <div class="cs-shot-frame"><img src="assets/screens/11-consultation-confirmed.png" alt="Consultation confirmed screen with appointment summary and calendar action" width="780" height="1688" loading="lazy" /></div>
+            <figcaption><i>11</i><span class="cs-shot-text"><b>Consultation confirmed</b><span>Full appointment summary with calendar download.</span></span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 10 INTERACTIONS ================= -->
+    <section class="cs-section" id="interactions" aria-labelledby="interactions-title">
+      <div class="cs-section-head">
+        <span class="cs-section-no">10</span>
+        <h2 id="interactions-title">Details that make it feel real</h2>
+        <p>The prototype is stateful, not a slideshow.</p>
+      </div>
+      <div class="cs-body">
+        <div class="cs-details">
+          <div class="cs-detail"><span class="cs-detail-icon"><svg aria-hidden="true"><use href="#i-search" /></svg></span><b>Live search &amp; filters</b><p>Query, family chips, four sort orders and a filter sheet combine into one result set. Recent searches are remembered and escaped.</p></div>
+          <div class="cs-detail"><span class="cs-detail-icon"><svg aria-hidden="true"><use href="#i-box" /></svg></span><b>Five-sample limit</b><p>The sixth add is blocked with a clear toast. Badges, header counts, empty and full states stay in sync.</p></div>
+          <div class="cs-detail"><span class="cs-detail-icon"><svg aria-hidden="true"><use href="#i-check" /></svg></span><b>Inline validation</b><p>Required fields show a specific message, an invalid state and a focus jump — no browser-native alert bubbles.</p></div>
+          <div class="cs-detail"><span class="cs-detail-icon"><svg aria-hidden="true"><use href="#i-calendar" /></svg></span><b>Gated booking</b><p>Confirmation stays disabled until a date and time are chosen. Unavailable slots are struck through and non-selectable.</p></div>
+          <div class="cs-detail"><span class="cs-detail-icon"><svg aria-hidden="true"><use href="#i-heart" /></svg></span><b>Save → moodboard</b><p>Saved surfaces collect in the studio and moodboard. Add, remove and empty states are all handled.</p></div>
+          <div class="cs-detail"><span class="cs-detail-icon"><svg aria-hidden="true"><use href="#i-share" /></svg></span><b>Share &amp; export</b><p>Surface and moodboard summaries copy to the clipboard; the board exports as a standalone HTML document.</p></div>
+          <div class="cs-detail"><span class="cs-detail-icon"><svg aria-hidden="true"><use href="#i-calendar" /></svg></span><b>Calendar invite</b><p>Confirmation downloads a valid .ics file with the chosen date, time, format and advisor.</p></div>
+          <div class="cs-detail"><span class="cs-detail-icon"><svg aria-hidden="true"><use href="#i-info" /></svg></span><b>Persistence &amp; reset</b><p>State survives refresh through local storage. Reset restores the demo without a reload.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 11 TESTING ================= -->
+    <section class="cs-section" id="testing" aria-labelledby="testing-title">
+      <div class="cs-section-head">
+        <span class="cs-section-no">11</span>
+        <h2 id="testing-title">Testing &amp; refinement</h2>
+        <p>What broke, what changed, and how I verified it.</p>
+      </div>
+      <div class="cs-body">
+        <p>I tested the prototype with Playwright at desktop, tablet and mobile widths, plus a manual pass on Chrome. Each finding produced a change rather than a note.</p>
+        <table class="cs-test-table">
+          <thead><tr><th>Area tested</th><th>Issue found</th><th>Refinement</th></tr></thead>
+          <tbody>
+            <tr><td>Sample limit</td><td>A sixth surface could be added from the detail screen.</td><td>Centralised the add rule and blocked it with a specific toast.</td></tr>
+            <tr><td>Request form</td><td>Native validation gave no guidance on what was wrong.</td><td>Added per-field messages, invalid states and focus jump.</td></tr>
+            <tr><td>Moodboard</td><td>An empty board rendered as a blank grid.</td><td>Added an empty state with a direct route to the library.</td></tr>
+            <tr><td>Search</td><td>Recent searches were hard-coded and could inject markup.</td><td>Persisted real recents and escaped every rendered value.</td></tr>
+            <tr><td>Booking</td><td>Format could change after confirmation without feedback.</td><td>CTA label reflects the chosen format; summary reads the same state.</td></tr>
+            <tr><td>Responsive shell</td><td>Rails squeezed the phone between 980 and 1240 px.</td><td>Collapsed rails at 1240 px and went full-screen at 760 px.</td></tr>
+            <tr><td>Share / export</td><td>Actions only showed a toast and did nothing.</td><td>Wired clipboard copy, HTML export and a real .ics download.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="cs-iterations">
+          <div class="cs-iteration">
+            <span class="micro">Iteration 01</span>
+            <b>From “browse” to “specify”</b>
+            <p>The first draft treated finish as a label. Users needed to see the decision change, so finish became a selectable control with a live note and price context.</p>
+            <span class="cs-arrow">Detail screen, rebuilt</span>
+          </div>
+          <div class="cs-iteration">
+            <span class="micro">Iteration 02</span>
+            <b>Making the box feel finite</b>
+            <p>A counter alone did not communicate the limit. The progress bar, header badge and blocked sixth add now tell the same story in three places.</p>
+            <span class="cs-arrow">Sample box, clarified</span>
+          </div>
+          <div class="cs-iteration">
+            <span class="micro">Iteration 03</span>
+            <b>A calmer confirmation</b>
+            <p>Early success screens were celebratory. The final version is quiet: a reference, a delivery window and one clear way home.</p>
+            <span class="cs-arrow">Tone, refined</span>
+          </div>
+          <div class="cs-iteration">
+            <span class="micro">Iteration 04</span>
+            <b>Testing the edges</b>
+            <p>Empty box, full box, no results, invalid form, no date, unavailable slot. Each edge case now has a designed response instead of a dead end.</p>
+            <span class="cs-arrow">States, completed</span>
+          </div>
+        </div>
+
+        <div class="cs-qa" aria-label="Automated QA results">
+          <div><strong>0</strong><span>Console errors</span></div>
+          <div><strong>36/36</strong><span>Images loaded</span></div>
+          <div><strong>11/11</strong><span>Screens reachable</span></div>
+          <div><strong>3/3</strong><span>Journeys complete</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 12 ACCESSIBILITY ================= -->
+    <section class="cs-section" id="accessibility" aria-labelledby="a11y-title">
+      <div class="cs-section-head">
+        <span class="cs-section-no">12</span>
+        <h2 id="a11y-title">Accessibility &amp; performance</h2>
+        <p>Small decisions that keep the prototype usable.</p>
+      </div>
+      <div class="cs-body">
+        <div class="cs-checks">
+          <div class="cs-check"><span class="tick">✓</span><div><b>Semantic landmarks</b><p>Header, nav, main and labelled sections; one h1 per page.</p></div></div>
+          <div class="cs-check"><span class="tick">✓</span><div><b>Focus visible</b><p>Brass focus rings, keyboard support for cards and Escape to close overlays.</p></div></div>
+          <div class="cs-check"><span class="tick">✓</span><div><b>Live feedback</b><p>Toasts use aria-live; invalid fields set aria-invalid and a message.</p></div></div>
+          <div class="cs-check"><span class="tick">✓</span><div><b>Dialog semantics</b><p>The filter sheet is a labelled modal with a backdrop and close control.</p></div></div>
+          <div class="cs-check"><span class="tick">✓</span><div><b>Reduced motion</b><p>Transitions and smooth scrolling are disabled under prefers-reduced-motion.</p></div></div>
+          <div class="cs-check"><span class="tick">✓</span><div><b>Contrast &amp; targets</b><p>AA body text and 44 px minimum touch targets across controls.</p></div></div>
+          <div class="cs-check"><span class="tick">✓</span><div><b>No layout shift</b><p>Screenshots and cards reserve space; images are lazy-loaded below the fold.</p></div></div>
+          <div class="cs-check"><span class="tick">✓</span><div><b>No build, no blocking</b><p>Fonts preconnect, one stylesheet, one script, and a static server for review.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 13 REFLECTION ================= -->
+    <section class="cs-section" id="reflection" aria-labelledby="reflection-title">
+      <div class="cs-section-head">
+        <span class="cs-section-no">13</span>
+        <h2 id="reflection-title">Reflection</h2>
+        <p>What I would carry into a product team.</p>
+      </div>
+      <div class="cs-body">
+        <div class="cs-reflection">
+          <div class="cs-quote">
+            <p>The hardest part was not making stone look beautiful. It was deciding <em>when the interface should get out of the way</em> — and when it owed the user one more clear sentence.</p>
+            <span>Ananya’s journey set the bar for every screen</span>
+          </div>
+          <div class="cs-next">
+            <div><b>Test with real users</b><p>Five moderated sessions with architects and private clients, measuring time to first sample and confidence in the specification.</p></div>
+            <div><b>Connect a catalogue</b><p>Replace local data with a CMS and real inventory, including live batch availability and lead times.</p></div>
+            <div><b>Deepen the moodboard</b><p>Client sharing, comments, room-level groupings and a true PDF export.</p></div>
+            <div><b>Measure the funnel</b><p>Instrument search → detail → box → request, and treat empty or blocked states as first-class events.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="cs-foot">
+      <div>
+        <div class="cs-foot-links">
+          <a href="index.html">Open the live prototype</a>
+          <a href="user-flows.html">User flows &amp; documentation</a>
+          <a href="README.md">Project README</a>
+        </div>
+      </div>
+      <p class="cs-foot-note">Surfaces Atelier is a self-initiated concept for Task 03. Photography via Pexels. Designed and built as a self-contained HTML prototype.</p>
+    </footer>
+  </div>
+</div>
+</body>
+</html>

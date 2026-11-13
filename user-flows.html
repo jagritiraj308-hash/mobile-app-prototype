@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#f4efe6" />
+<meta name="description" content="User flow diagrams, screen inventory and reusable components for the Surfaces Atelier mobile app prototype." />
+<meta property="og:title" content="User flows — Surfaces Atelier Mobile Prototype" />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="assets/screens/01-home.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<title>User flows — Surfaces Atelier Mobile Prototype</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%231a1713'/%3E%3Cpath d='M32 12 52 32 32 52 12 32z' fill='none' stroke='%23f4efe6' stroke-width='2'/%3E%3Cpath d='M32 24 40 32 32 40 24 32z' fill='%23c49a6c'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Manrope:wght@300..800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="flows.css" />
+</head>
+<body>
+<div class="page">
+  <div class="flows-page">
+    <header class="flows-head">
+      <a class="brand" href="index.html" aria-label="Surfaces Atelier prototype home">
+        <span class="brand-mark" aria-hidden="true"><span></span></span>
+        <span class="brand-text"><b>SURFACES</b><span>Atelier · Mobile</span></span>
+      </a>
+      <nav class="flows-nav" aria-label="Documentation links">
+        <a class="back" href="index.html">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 19l-7-7 7-7" /></svg>
+          Back to prototype
+        </a>
+        <a href="#inventory">Screens</a>
+        <a href="#system">Components</a>
+        <a href="#testing">Testing</a>
+        <a href="case-study.html">Case study</a>
+      </nav>
+    </header>
+
+    <section class="flows-intro">
+      <p class="eyebrow"><span></span>Task 03 — Step 01 · User flow design</p>
+      <h1>Three journeys,<br /><em>eleven screens.</em></h1>
+      <p class="lede">Every path through the prototype begins with a real client intention — see the stone, keep the stone, or talk it through. These diagrams map the decisions, the screens and the edge cases behind each journey.</p>
+      <div class="flows-meta" aria-label="Document summary">
+        <div><strong>03</strong><span>User journeys</span></div>
+        <div><strong>11</strong><span>High-fidelity screens</span></div>
+        <div><strong>25</strong><span>Designed states</span></div>
+        <div><strong>390 × 844</strong><span>Mobile canvas</span></div>
+      </div>
+    </section>
+
+    <!-- ============ FLOW 01 ============ -->
+    <section class="flow" id="flow-samples" aria-labelledby="flow-samples-title">
+      <header class="flow-head">
+        <span class="flow-no">01</span>
+        <div>
+          <h2 id="flow-samples-title">Request a sample box</h2>
+          <p>The primary conversion path. A visitor discovers a surface, checks the specification, builds a box of up to five samples and sends a request.</p>
+        </div>
+        <span class="flow-tag">7 steps · 5 screens</span>
+      </header>
+      <ol class="flow-track">
+        <li class="flow-step"><span class="step-no">01</span><b>Browse the library</b><small>Open Explore from the tab bar or the home search field.</small><span class="screen-tag">Explore</span></li>
+        <li class="flow-step"><span class="step-no">02</span><b>Open a surface</b><small>Tap a material card to see the full specification.</small><span class="screen-tag">Material detail</span></li>
+        <li class="flow-step"><span class="step-no">03</span><b>Choose a finish</b><small>Honed, polished, brushed or natural — the note updates.</small><span class="screen-tag">Material detail</span></li>
+        <li class="flow-step"><span class="step-no">04</span><b>Add to sample box</b><small>Limit five. The tab badge and header count update instantly.</small><span class="screen-tag">Sample box</span></li>
+        <li class="flow-step"><span class="step-no">05</span><b>Review the box</b><small>Remove, compare and add a recommended surface.</small><span class="screen-tag">Sample box</span></li>
+        <li class="flow-step"><span class="step-no">06</span><b>Enter delivery details</b><small>Name, email, project type and address are required.</small><span class="screen-tag">Request samples</span></li>
+        <li class="flow-step"><span class="step-no">07</span><b>Confirmation</b><small>Reference number, surface count and delivery window.</small><span class="screen-tag">Request confirmed</span></li>
+      </ol>
+      <div class="flow-notes">
+        <div>
+          <p class="micro">Entry points</p>
+          <ul>
+            <li>Home hero card and “Curated for you” rail</li>
+            <li>Explore tab, family chips and filter sheet</li>
+            <li>Search results and moodboard “View surface”</li>
+          </ul>
+        </div>
+        <div>
+          <p class="micro">Edge cases</p>
+          <ul>
+            <li>Empty box → browse prompt, request CTA disabled</li>
+            <li>Five surfaces → sixth add is blocked with a toast</li>
+            <li>Invalid form → inline focus on the first missing field</li>
+            <li>Box emptied mid-flow → returned to the sample box</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FLOW 02 ============ -->
+    <section class="flow" id="flow-search" aria-labelledby="flow-search-title">
+      <header class="flow-head">
+        <span class="flow-no">02</span>
+        <div>
+          <h2 id="flow-search-title">Search &amp; save a surface</h2>
+          <p>A returning trade client knows roughly what they want. The path optimises for speed: search, open, save, collect into a project moodboard.</p>
+        </div>
+        <span class="flow-tag">5 steps · 4 screens</span>
+      </header>
+      <ol class="flow-track">
+        <li class="flow-step"><span class="step-no">01</span><b>Start a search</b><small>Search screen opens with recents, families and trending surfaces.</small><span class="screen-tag">Search</span></li>
+        <li class="flow-step"><span class="step-no">02</span><b>Scan results</b><small>Results show family, origin and finish — tap to open.</small><span class="screen-tag">Search</span></li>
+        <li class="flow-step"><span class="step-no">03</span><b>Verify the surface</b><small>Read the specification and pick the finish for the project.</small><span class="screen-tag">Material detail</span></li>
+        <li class="flow-step"><span class="step-no">04</span><b>Save it</b><small>The heart fills, the toast confirms, the studio count rises.</small><span class="screen-tag">Material detail</span></li>
+        <li class="flow-step"><span class="step-no">05</span><b>Collect the scheme</b><small>Saved surfaces wait in the moodboard; tap + to add one to the board.</small><span class="screen-tag">Moodboard</span></li>
+      </ol>
+      <div class="flow-notes">
+        <div>
+          <p class="micro">Entry points</p>
+          <ul>
+            <li>Home search field or ⌘K / Ctrl K</li>
+            <li>Search icon in the Explore header</li>
+            <li>Guided journey 02 from the presentation rail</li>
+          </ul>
+        </div>
+        <div>
+          <p class="micro">Edge cases</p>
+          <ul>
+            <li>No results → suggest broader terms and families</li>
+            <li>Empty query → recents and trending restore</li>
+            <li>Clearing the query keeps the user on Search</li>
+            <li>Saved state persists in local storage</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FLOW 03 ============ -->
+    <section class="flow" id="flow-consult" aria-labelledby="flow-consult-title">
+      <header class="flow-head">
+        <span class="flow-no">03</span>
+        <div>
+          <h2 id="flow-consult-title">Book a consultation</h2>
+          <p>For clients who need guidance before specifying. A short, gated booking flow that only enables confirmation once a date and time are chosen.</p>
+        </div>
+        <span class="flow-tag">6 steps · 3 screens</span>
+      </header>
+      <ol class="flow-track">
+        <li class="flow-step"><span class="step-no">01</span><b>Discover the advisor</b><small>Studio card or home consultation card introduces the visit.</small><span class="screen-tag">Studio</span></li>
+        <li class="flow-step"><span class="step-no">02</span><b>Open booking</b><small>Advisor, location and duration are confirmed up front.</small><span class="screen-tag">Book a visit</span></li>
+        <li class="flow-step"><span class="step-no">03</span><b>Choose a date</b><small>Seven-day strip; the selected day inverts to ink.</small><span class="screen-tag">Book a visit</span></li>
+        <li class="flow-step"><span class="step-no">04</span><b>Choose a time</b><small>Unavailable slots are struck through and disabled.</small><span class="screen-tag">Book a visit</span></li>
+        <li class="flow-step"><span class="step-no">05</span><b>Pick a format</b><small>Studio, video or site visit — the CTA label updates.</small><span class="screen-tag">Book a visit</span></li>
+        <li class="flow-step"><span class="step-no">06</span><b>Confirmation</b><small>Date, time, format and advisor in a summary card.</small><span class="screen-tag">Consultation confirmed</span></li>
+      </ol>
+      <div class="flow-notes">
+        <div>
+          <p class="micro">Entry points</p>
+          <ul>
+            <li>Home “Book a consultation” card</li>
+            <li>Studio quick action and presentation journey 03</li>
+            <li>Material detail note for specification advice</li>
+          </ul>
+        </div>
+        <div>
+          <p class="micro">Edge cases</p>
+          <ul>
+            <li>No date or time → CTA disabled, never a dead end</li>
+            <li>Unavailable slot → not selectable</li>
+            <li>Notes field optional, never blocks confirmation</li>
+            <li>Back from confirmation returns to the booking screen</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INVENTORY ============ -->
+    <section class="inventory" id="inventory" aria-labelledby="inventory-title">
+      <div class="section-lead">
+        <h2 id="inventory-title">Screen inventory</h2>
+        <p>Eleven screens, each with the states that matter. Everything is reachable inside the live prototype.</p>
+      </div>
+      <div class="screen-grid">
+        <article class="screen-card"><div class="screen-card-top"><i>01</i><span>Tab</span></div><h3>Home</h3><p>Greeting, search entry, stone of the month, curated rail and new arrivals.</p><div class="states"><span>Default</span><span>Dynamic date</span></div></article>
+        <article class="screen-card"><div class="screen-card-top"><i>02</i><span>Tab</span></div><h3>Explore</h3><p>Full library with live search, family chips, sorting and a filter sheet.</p><div class="states"><span>Results</span><span>Empty</span><span>Filtered</span></div></article>
+        <article class="screen-card"><div class="screen-card-top"><i>03</i><span>Detail</span></div><h3>Material detail</h3><p>Imagery, specification, finishes, paired surfaces and the sample CTA.</p><div class="states"><span>Saved</span><span>In box</span><span>Finish selected</span></div></article>
+        <article class="screen-card"><div class="screen-card-top"><i>04</i><span>Overlay</span></div><h3>Search</h3><p>Recents, family shortcuts, trending surfaces and live results.</p><div class="states"><span>Idle</span><span>Results</span><span>No results</span></div></article>
+        <article class="screen-card"><div class="screen-card-top"><i>05</i><span>Tab</span></div><h3>Sample box</h3><p>Up to five surfaces, progress indicator, removal and recommendations.</p><div class="states"><span>Empty</span><span>Partial</span><span>Full</span></div></article>
+        <article class="screen-card"><div class="screen-card-top"><i>06</i><span>Form</span></div><h3>Request samples</h3><p>Three-step stepper, selected surfaces and a validated delivery form.</p><div class="states"><span>Pristine</span><span>Invalid</span><span>Ready</span></div></article>
+        <article class="screen-card"><div class="screen-card-top"><i>07</i><span>Success</span></div><h3>Request confirmed</h3><p>Reference, surface count, delivery window and the destination email.</p><div class="states"><span>Submitted</span></div></article>
+        <article class="screen-card"><div class="screen-card-top"><i>08</i><span>Tab</span></div><h3>Studio</h3><p>Trade profile, saved counts, moodboards, activity and booking shortcut.</p><div class="states"><span>Default</span><span>Live counts</span></div></article>
+        <article class="screen-card"><div class="screen-card-top"><i>09</i><span>Project</span></div><h3>Moodboard</h3><p>Villa Amara scheme with removal, surface links and export action.</p><div class="states"><span>Populated</span><span>Empty</span></div></article>
+        <article class="screen-card"><div class="screen-card-top"><i>10</i><span>Booking</span></div><h3>Book a visit</h3><p>Advisor card, seven-day date strip, times, format and notes.</p><div class="states"><span>Incomplete</span><span>Ready</span></div></article>
+        <article class="screen-card"><div class="screen-card-top"><i>11</i><span>Success</span></div><h3>Consultation confirmed</h3><p>Full appointment summary with calendar and studio return actions.</p><div class="states"><span>Submitted</span></div></article>
+      </div>
+    </section>
+
+    <!-- ============ SYSTEM ============ -->
+    <section class="system" id="system" aria-labelledby="system-title">
+      <div class="section-lead">
+        <h2 id="system-title">Reusable components</h2>
+        <p>The same primitives repeat across all eleven screens, which keeps the prototype consistent and quick to extend.</p>
+      </div>
+      <div class="system-grid">
+        <div class="panel">
+          <h3>Component library</h3>
+          <p>Rendered live with the production stylesheet.</p>
+          <div class="demo-row"><span class="demo-label">Buttons</span>
+            <span class="btn btn--solid btn--sm">Primary</span>
+            <span class="btn btn--ghost btn--sm">Secondary</span>
+            <span class="text-link">Text link</span>
+          </div>
+          <div class="demo-row"><span class="demo-label">Chips &amp; pills</span>
+            <span class="chip is-active">Selected</span>
+            <span class="chip">Marble</span>
+            <span class="pill pill--glass" style="background:var(--ink);border-color:var(--ink)">Pill</span>
+          </div>
+          <div class="demo-row"><span class="demo-label">Field</span>
+            <span class="demo-field">Search surfaces, origins, finishes</span>
+          </div>
+          <div class="demo-row"><span class="demo-label">Tab bar</span>
+            <span class="demo-tabbar">
+              <span class="is-active"><i></i>Home</span><span><i></i>Explore</span><span><i></i>Samples</span><span><i></i>Studio</span>
+            </span>
+          </div>
+          <div class="demo-row"><span class="demo-label">Feedback</span>
+            <span class="demo-toast">Calacatta Viola added to your box</span>
+          </div>
+          <div class="demo-row"><span class="demo-label">Journey coach</span>
+            <span class="demo-coach"><span class="coach-step">02</span><span><b>Request a sample box</b><small>Review the specification, then add it to your sample box.</small></span></span>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Design tokens</h3>
+          <p>Warm, editorial and deliberately restrained so the stone carries the colour.</p>
+          <div class="token-row" style="margin-bottom:16px">
+            <span style="--c:#f4efe6"><i></i>Ivory</span>
+            <span style="--c:#1a1713"><i></i>Ink</span>
+            <span style="--c:#8f6238"><i></i>Brass</span>
+            <span style="--c:#e5dccd"><i></i>Clay</span>
+            <span style="--c:#3b4132"><i></i>Olive</span>
+          </div>
+          <dl class="spec-list">
+            <div><dt>Display</dt><dd>Fraunces · 300–400</dd></div>
+            <div><dt>Interface</dt><dd>Manrope · 400–800</dd></div>
+            <div><dt>Radius</dt><dd>10 / 14 / 22 px</dd></div>
+            <div><dt>Spacing</dt><dd>4 px base scale</dd></div>
+            <div><dt>Grid</dt><dd>2-column cards · 18 px gutter</dd></div>
+            <div><dt>Motion</dt><dd>220–400 ms · ease-out</dd></div>
+            <div><dt>Canvas</dt><dd>390 × 844 · safe areas</dd></div>
+            <div><dt>Contrast</dt><dd>AA for body and controls</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTING ============ -->
+    <section class="testing" id="testing" aria-labelledby="testing-title">
+      <div class="section-lead">
+        <h2 id="testing-title">Tested interactions</h2>
+        <p>Navigation and state were verified across desktop, tablet and mobile widths before refinement.</p>
+      </div>
+      <div class="test-grid">
+        <div class="test-item"><span class="tick">✓</span><div><b>Screen navigation &amp; back stack</b><p>Tabs, detail pushes, back buttons and screen-index jumps all resolve to a valid screen.</p></div></div>
+        <div class="test-item"><span class="tick">✓</span><div><b>Sample box rules</b><p>Add, remove, five-surface limit, badge counts and empty state stay in sync.</p></div></div>
+        <div class="test-item"><span class="tick">✓</span><div><b>Search, filters &amp; sort</b><p>Live query, family chips, sheet filters and four sort orders update the grid.</p></div></div>
+        <div class="test-item"><span class="tick">✓</span><div><b>Form validation</b><p>Required fields block submission; valid data produces a reference and summary.</p></div></div>
+        <div class="test-item"><span class="tick">✓</span><div><b>Booking gate</b><p>Confirmation stays disabled until both a date and a time are selected.</p></div></div>
+        <div class="test-item"><span class="tick">✓</span><div><b>Persistence &amp; reset</b><p>Saved surfaces, samples and bookings survive refresh; reset restores the demo.</p></div></div>
+        <div class="test-item"><span class="tick">✓</span><div><b>Responsive behaviour</b><p>Presentation rails collapse at 1240 px; the phone becomes full-screen at 760 px.</p></div></div>
+        <div class="test-item"><span class="tick">✓</span><div><b>Accessibility</b><p>Focus styles, aria labels, dialog state, reduced-motion and Escape handling.</p></div></div>
+      </div>
+    </section>
+
+    <footer class="flows-foot">
+      <span>Surfaces Atelier — Mobile App Prototype</span>
+      <span>Task 03 · User flows · Step 01 of 05</span>
+    </footer>
+  </div>
+</div>
+</body>
+</html>
